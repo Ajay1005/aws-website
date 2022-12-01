@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request
-import mysql.connector
-from pymysql import connections
+import pymysql
 import boto3
 from config import *
 
@@ -9,7 +8,7 @@ emp = Flask(__name__)
 bucket = custombucket
 region = customregion
 
-db_conn = mysql.connector.connect(host=customhost, port=3306, user=customuser, password=custompass, db=customdb)
+db_conn = pymysql.connect(host=customhost, port=3306, user=customuser, password=custompass, db=customdb)
 output = {}
 table = 'employee'
 
